@@ -70,7 +70,6 @@
     <Compile Include="SoftmaxLayer.cs" />
     <Compile Include="SVMLayer.cs" />
     <Compile Include="TanhLayer.cs" />
-    <Compile Include="Tools\CudafyTools.cs" />
     <Compile Include="Trainer.cs" />
     <Compile Include="Volume.cs" />
     <Compile Include="VolumeUtilities.cs" />
