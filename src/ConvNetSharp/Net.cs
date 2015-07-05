@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ConvNetSharp
 {
@@ -107,14 +108,32 @@ namespace ConvNetSharp
 
         public Volume Forward(Volume volume, bool isTraining = false)
         {
+#if PERFORMANCE
+            Console.WriteLine("------------------------------------");
+            var chronoTotal = Stopwatch.StartNew();
+            var chrono = Stopwatch.StartNew();
+#endif
             var activation = this.layers[0].Forward(volume, isTraining);
+#if PERFORMANCE
+            Console.WriteLine("Layer {0} / {1}: {2}ms", 0, this.layers[0], chrono.Elapsed.TotalMilliseconds);
+#endif
 
             for (var i = 1; i < this.layers.Count; i++)
             {
+#if PERFORMANCE
+                chrono.Restart();
+#endif
                 var layerBase = this.layers[i];
                 activation = layerBase.Forward(activation, isTraining);
+
+#if PERFORMANCE
+                Console.WriteLine("Layer {0} / {1}: {2}ms", i, layerBase, chrono.Elapsed.TotalMilliseconds);
+#endif
             }
 
+#if PERFORMANCE
+            Console.WriteLine("Total: {0}ms", chronoTotal.Elapsed.TotalMilliseconds);
+#endif
             return activation;
         }
 

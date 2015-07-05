@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/lcqjebortqnn1wkg?svg=true)](https://ci.appveyor.com/project/cbovar/convnetsharp)
+Some layer forward/backward methods are implemented using Cudafy in order to run on GPU. Work/Experiments in progress.
 
 # ConvNetSharp
 C# port of [ConvNetJS](https://github.com/karpathy/convnetjs). You can use ConvNetSharp to train and evaluate convolutional neural networks (CNN).

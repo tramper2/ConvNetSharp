@@ -61,7 +61,7 @@ namespace ConvNetSharp.Tests
             layer.Init(inputWidth, inputHeight, inputDepth);
 
             // Forward pass
-            var input = new Volume(inputWidth, inputHeight, inputDepth, 1.0);
+            var input = new Volume(inputWidth, inputHeight, inputDepth);
             var output = layer.Forward(input);
 
             // Set output gradients to 1
@@ -82,8 +82,6 @@ namespace ConvNetSharp.Tests
                 // Now let's approximate gradient
                 for (var i = 0; i < paramAndGrad.Parameters.Length; i++)
                 {
-                    input = new Volume(inputWidth, inputHeight, inputDepth, 1.0);
-
                     var oldValue = paramAndGrad.Parameters[i];
                     paramAndGrad.Parameters[i] = oldValue + epsilon;
                     var output1 = layer.Forward(input);

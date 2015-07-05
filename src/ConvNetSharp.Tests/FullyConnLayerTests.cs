@@ -22,14 +22,13 @@ namespace ConvNetSharp.Tests
         [Test]
         public void GradientWrtParametersCheck()
         {
-            const int inputWidth = 2;
-            const int inputHeight = 2;
+            const int inputWidth = 20;
+            const int inputHeight = 20;
             const int inputDepth = 2;
-            const int neuronCount = 2;
 
             // Create layer
+            const int neuronCount = 20;
             var layer = new FullyConnLayer(neuronCount);
-            layer.Init(inputWidth, inputHeight, inputDepth);
 
             GradientCheckTools.GradienWrtParameterstCheck(inputWidth, inputHeight, inputDepth, layer);
         }
