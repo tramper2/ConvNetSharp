@@ -43,13 +43,13 @@ namespace ConvNetSharp
         public int OutputHeight { get; protected set; }
 
         [DataMember]
-        protected int InputDepth { get; private set; }
+        public int InputDepth { get; private set; }
 
         [DataMember]
-        protected int InputWidth { get; private set; }
+        public int InputWidth { get; private set; }
 
         [DataMember]
-        protected int InputHeight { get; private set; }
+        public int InputHeight { get; private set; }
 
         [DataMember]
         protected int Width { get; set; }

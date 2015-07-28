@@ -17,7 +17,7 @@ namespace ConvNetSharp.Tests
             const int filterHeight = 3;
             const int filterCount = 5;
 
-            var layer = new ConvLayer(filterWidth, filterHeight, filterCount);
+            var layer = new ConvLayer(filterWidth, filterHeight, filterCount) { Stride = 2};
 
             GradientCheckTools.GradientCheck(layer, inputWidth, inputHeight, inputDepth);
         }
@@ -34,7 +34,7 @@ namespace ConvNetSharp.Tests
             const int filterHeight = 3;
             const int filterCount = 2;
 
-            var layer = new ConvLayer(filterWidth, filterHeight, filterCount);
+            var layer = new ConvLayer(filterWidth, filterHeight, filterCount) { Stride = 2 };
 
             GradientCheckTools.GradienWrtParameterstCheck(inputWidth, inputHeight, inputDepth, layer);
         }
